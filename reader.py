@@ -6,7 +6,7 @@ from xml.etree import ElementTree
 
 from pydantic import BaseModel, Field
 
-FEED_URL = "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/mexico/portada"
+FEED_URL = "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/lo-mas-visto/portada"
 MAX_ARTICLE_AGE = timedelta(hours=24)
 
 NAMESPACES = {

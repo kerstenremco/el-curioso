@@ -33,6 +33,7 @@ Follow these rules:
   (present, preterite, and near future tenses only), no idioms or jargon.
 - Keep the summary concise, using a maximum of three paragraphs.
 - Write a short title that reflects the overall content of the summary.
+- Don't use general phrases like "News of Spain" or "Today's news". Be specific about the topics covered, so each day the title is different.
 - Keep the output in Spanish. Do not translate to another language.
 """
 
