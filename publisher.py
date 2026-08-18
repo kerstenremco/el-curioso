@@ -6,7 +6,7 @@ from pathlib import Path
 from reader import NewsArticle
 from summarizer import NewsSummary
 
-OUTPUT_DIR = Path("output")
+OUTPUT_DIR = Path("docs/editions")
 
 SPANISH_MONTHS = [
     "enero", "febrero", "marzo", "abril", "mayo", "junio",
@@ -102,8 +102,8 @@ def build_newspaper(articles: list[NewsArticle], summary: NewsSummary) -> Path:
         articles_html="\n".join(render_article(article) for article in articles),
     )
 
-    OUTPUT_DIR.mkdir(exist_ok=True)
-    output_path = OUTPUT_DIR / f"{now.strftime('%Y-%m-%dT%H-%M-%S')}.html"
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = OUTPUT_DIR / f"{now.strftime('%Y-%m-%d')}.html"
     output_path.write_text(html, encoding="utf-8")
 
     return output_path

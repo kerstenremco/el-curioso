@@ -2,6 +2,7 @@ import os
 
 from agents import gen_trace_id, trace
 
+from homepage import build_homepage
 from publisher import build_newspaper
 from reader import get_news_articles
 from rewriter import rewrite_articles
@@ -30,3 +31,8 @@ class EditorManager:
             output_path = build_newspaper(rewritten_articles, summary)
 
             yield f"Newspaper published to {output_path}"
+
+            yield "Updating homepage..."
+            build_homepage()
+
+            yield "Homepage updated."
