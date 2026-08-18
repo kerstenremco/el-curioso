@@ -23,7 +23,7 @@ class NewsSummary(BaseModel):
 INSTRUCTIONS = """
 You are a writer for "El Curioso", a daily newspaper that helps Spanish
 language learners practice reading. You are given several news articles
-already rewritten in simple, CEFR A1-level Spanish. Write a single front-page
+already rewritten in simple, CEFR A2-level Spanish. Write a single front-page
 summary in Spanish that gives readers an overview of today's news before they
 dive into the full articles.
 

@@ -15,8 +15,8 @@ class RewriterInput(BaseModel):
     content: str = Field(description="The original body content of the news article")
 
 class NewsArticleTranslated(BaseModel):
-    title: str = Field(description="The title of the news article, simplified to A1-level Spanish")
-    content: str = Field(description="The full body content of the news article, simplified to A1-level Spanish")
+    title: str = Field(description="The title of the news article, simplified to A2-level Spanish")
+    content: str = Field(description="The full body content of the news article, simplified to A2-level Spanish")
 
 INSTRUCTIONS = """
 You are a writer for "El Curioso", a daily newspaper that helps Spanish
