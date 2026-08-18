@@ -22,6 +22,9 @@ Runtime config is read from a `.env` file (via `python-dotenv`), not committed t
 - `OPENAI_API_KEY` — required by the `openai-agents` SDK.
 - `MODEL_NAME` — default model used by both agent stages.
 - `MODEL_NAME_REWRITER` / `MODEL_NAME_SUMMARIZER` — optional per-stage overrides (each falls back to `MODEL_NAME` if unset).
+- `FEED_URL` — RSS feed to read (defaults to the El País "lo más visto" feed).
+- `MAX_ARTICLE_AGE_HOURS` — max article age to include, in hours (default `24`).
+- `ARTICLE_LIMIT` — max number of articles fetched per run (default `30`).
 
 ## Architecture
 

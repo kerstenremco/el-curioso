@@ -1,5 +1,3 @@
-import os
-
 from agents import gen_trace_id, trace
 
 from homepage import build_homepage

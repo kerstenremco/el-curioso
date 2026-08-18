@@ -1,13 +1,17 @@
+import os
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from typing import Optional
 from urllib.request import urlopen
 from xml.etree import ElementTree
 
+from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 
-FEED_URL = "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/lo-mas-visto/portada"
-MAX_ARTICLE_AGE = timedelta(hours=24)
+load_dotenv()
+FEED_URL = os.getenv("FEED_URL") or "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/section/lo-mas-visto/portada"
+MAX_ARTICLE_AGE = timedelta(hours=int(os.getenv("MAX_ARTICLE_AGE_HOURS") or 24))
+ARTICLE_LIMIT = int(os.getenv("ARTICLE_LIMIT") or 30)
 
 NAMESPACES = {
     "media": "http://search.yahoo.com/mrss/",
@@ -84,8 +88,8 @@ def is_recent(pub_date: str, max_age: timedelta = MAX_ARTICLE_AGE) -> bool:
     return datetime.now(timezone.utc) - published <= max_age
 
 
-def get_news_articles(limit: int = 30) -> list[NewsArticle]:
+def get_news_articles() -> list[NewsArticle]:
     xml_bytes = fetch_feed()
     articles = parse_feed(xml_bytes)
     recent_articles = [article for article in articles if is_recent(article.pubDate)]
-    return recent_articles[:limit]
+    return recent_articles[:ARTICLE_LIMIT]
