@@ -23,8 +23,6 @@ class EditorManager:
             yield f"Creating summary..."
             summary = await summarize_articles(rewritten_articles)
 
-            yield f"Summary created:\nTitle: {summary.title}\nContent: {summary.content}"
-
             yield "Building newspaper..."
             output_path = build_newspaper(rewritten_articles, summary)
 
